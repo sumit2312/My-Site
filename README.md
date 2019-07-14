@@ -19,4 +19,6 @@ Use **django-tinymce** (A Django application that contains a widget to render a 
     ...
     ] 
     `
+    Username : sumit
+    Password : admin
    

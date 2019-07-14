@@ -2,18 +2,70 @@
 {% load static %}
 
 {% block content %}
+
+<!--                   HEADER               -->
+    <header class="header">
+	    <div class="brand-box">
+	    	<span class="brand">Example Brand</span>
+	    </div>
+	
+	    <div class="text-box">
+  		  <h1 class="heading-primary">
+  			<span class="heading-primary-main">BLOG</span>
+  			{% comment %} <span class="heading-primary-sub">The secondary heading</span> {% endcomment %}
+  		  </h1>
+       
+
+  		  {% comment %} <a href="#" class="down" style="color:white;"><i class="medium material-icons">arrow_downward</i></a> {% endcomment %}
+    	</div>
+        <a href="#qwerty">
+        <div class="arrow">
+                <span></span>
+                <span></span>
+                <span></span>
+  
+        </div>
+        </a>
+  </header>
+
+
 <br>
- <a href="/create" <div class="row align-center"><div class="column large-5 button">Create Post</div></div></a>
+
+{% if user.is_authenticated %}
+<a href="/create" >
+<div class="svg-wrapper">
+  <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+    <rect class="shape" height="60" width="320" />
+    <div class="text">CREATE POST</div>
+  </svg>
+</div>
+</a>
+ {% comment %} <a href="/create" ><div class="row align-center"><div class="column large-5 button">Create Post</div></div></a> {% endcomment %}
+{% endif %}
 <br>
-    <div class="row align-spaced">
+  <div id="qwerty"></div>
+    {% for instance in posts %}
+
+    <div class="box">
+      <h1><a  href="/posts/{{ instance.id }}"><a  href="/posts/{{ instance.id }}">{{instance.title}}</a></h1>
+      <p>{{ instance.content | safe | truncatechars_html:50}}</p>
+      <hr>
+      <br><button>{{user}}</button>
+    </div>
+
+    {% endfor %}
+    <br>
+
+
+    {% comment %} <div class="row align-spaced">
               {% for instance in posts %}
 
-                  <div class="column small-12 medium-5 large-5 card" >
+                  <div class="column small-12 medium-5 large-5 card" style="border-radius:10px; border:2px solid grey;">
                         <h3 class="text-center"><a  href="/posts/{{ instance.id }}">{{instance.title}}</a></h3>
-                        <p>{{ instance.content | safe | truncatechars_html:100  }}</p>
+                        <p>{{ instance.content | safe | truncatechars_html:50}}</p>
                         <hr><br>
                   </div>
 
                 {% endfor %}
-    </div>
+    </div> {% endcomment %}
 {% endblock %}

@@ -6,38 +6,108 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link  rel="stylesheet" href="{% static 'css/foundation.min.css' %}">       
 
-        <link href="{% static "styles/github.css" %}" rel="stylesheet">             {# github theme for highlightjs #}
+        {% comment %} <link href="{% static "styles/github.css" %}" rel="stylesheet">             {# github theme for highlightjs #} {% endcomment %}
+
+
+
+      <!-- Compiled and minified CSS -->
+    {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> {% endcomment %}
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+      
+      <link href="{% static "css/main.css" %}" rel="stylesheet">
+      <link href="{% static "css/nav.css" %}" rel="stylesheet">
+      <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
 
         <title>{% block head_title %} MY SITE {%  endblock head_title %}</title>
         {% block head_extra %}{% endblock %}
     </head>
 
     <style>{% block style %}{% endblock style %}</style>
-     <body>
 
-       <div class="top-bar">
-         <div class="top-bar-left">
-            <a style="color:grey" href="/">MY_SITE</a>
-         </div>
-         <div class="top-bar-right">
-           <h4><small> A Tech Blog </small></h6>
-         </div>
-       </div>
-<br>
+ <body>
+
+       
+
+        
+<nav class="navbar">
+        <span class="navbar-toggle" id="js-navbar-toggle">
+            <i class="fas fa-bars"></i>
+        </span>
+        <a href="{% url 'app:list' %}" class="logo">logo</a>
+        <ul class="main-nav" id="js-menu">
+            <li>
+                <a href="{% url 'app:list' %} " class="nav-links">Home</a>
+            </li>
+            <li>
+                <a href="#" class="nav-links">Products</a>
+            </li>
+            <li>
+                <a href="#" class="nav-links">About Us</a>
+            </li>
+            <li>
+                <a href="#" class="nav-links">Contact Us</a>
+            </li>
+            <li>
+                <a href="#" class="nav-links">Blog</a>
+            </li>
+        </ul>
+    </nav>
+
+     <div class="container-fluid">
         {% block content %}
 
         {% endblock content %}
+     </div>
+
+      <!--   FOOTER   -->
+      
+      <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="link" class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="link" class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="link" class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a class="link" class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2019 Copyright Sumit
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
+      
+     
 
 
     </body>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+        crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 
     <script src="{% static "highlight.pack.js" %}"></script>          {# required for syntax hightlighting #}
     <script>hljs.initHighlightingOnLoad();</script>                   {# required for syntax hightlighting #}
 
     <script  src="{% static 'js/vendor/jquery.js' %}"></script>       {# addition javascripts  #}
-    <script  src="{% static 'js/vedor/what-input.js' %}"></script>
-    <script  src="{% static 'js/foundation.min.js'%}"></script>
+    {% comment %} <script  src="{% static 'js/vedor/what-input.js' %}"></script> {% endcomment %}
+    <script  src="{% static 'js/vendor/foundation.min.js'%}"></script>
+    <script  src="{% static 'js/nav.js'%}"></script>
 
     {% block scripts %} {% endblock %}
 	
